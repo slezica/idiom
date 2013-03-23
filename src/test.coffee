@@ -94,4 +94,8 @@ describe '#dict()', ->
 
   it 'should merge key-value pairs into an object', ->
     x = dict([a, a + 3] for a in [1..10])
-    assert x[key] is key + 3 for key in [1..10]
+    assert.equal x[key], key + 3 for key in [1..10]
+
+  it 'should override repeated properties', ->
+    x = dict([ [1, 1], [1, 2], [1, 3] ])
+    assert.equal x[1], 3
