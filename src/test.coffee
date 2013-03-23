@@ -35,5 +35,20 @@ describe '#kindof()', ->
     assert.equal kindof({}), 'Object'
 
   it 'should recognize custom classes', ->
-    class TestClass
-    assert.equal kindof(new TestClass), 'TestClass'
+    assert.equal kindof(new class TestClass), 'TestClass'
+
+describe '#async()', ->
+  $err = $obj = null
+  $ = (err, obj) ->
+    $err = err
+    $obj = obj
+
+  it 'should forward returns to a callback', ->
+    (async -> 8)($)
+    assert.equal $err, null
+    assert.equal $obj, 8
+
+  it 'should forward exceptions as errors', ->
+    (async -> throw 8)($)
+    assert.equal $err, 8
+    assert.equal $obj, null
