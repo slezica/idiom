@@ -14,6 +14,7 @@ describe '#take()', ->
     assert take(ctx, foo) is ctx
     assert.equal ctx.key, 'value'
 
+
 describe '#kindof()', ->
   it 'should recognize undefined', ->
     assert.equal kindof(undefined), 'undefined'
@@ -37,6 +38,7 @@ describe '#kindof()', ->
   it 'should recognize custom classes', ->
     assert.equal kindof(new class TestClass), 'TestClass'
 
+
 describe '#async()', ->
   $err = $obj = null
   $ = (err, obj) ->
@@ -52,3 +54,44 @@ describe '#async()', ->
     (async -> throw 8)($)
     assert.equal $err, 8
     assert.equal $obj, null
+
+
+describe '#extend()', ->
+  x = { a: 1, b: 2, c: 3, d: 4}
+  y = { c: 4, d: 3, e: 2, f: 1}
+  z = extend x, y
+
+  it 'should return its first argument', ->
+    assert x is z
+
+  it 'should possess all own properties', ->
+    assert key of z for own key of x
+    assert key of z for own key of y
+
+  it 'should override repeated properties', ->
+    assert z[key] = y[key] for own key of y
+
+
+describe '#merge()', ->
+  x = { a: 1, b: 2, c: 3, d: 4}
+  y = { c: 4, d: 3, e: 2, f: 1}
+  z = merge x, y
+
+  it 'should create new objects', ->
+    assert x isnt merge x
+
+  it 'should possess all own properties', ->
+    assert key of z for own key of x
+    assert key of z for own key of y
+
+  it 'should override repeated properties', ->
+    assert z[key] = y[key] for own key of y
+
+
+describe '#dict()', ->
+  it 'should work with no arguments', ->
+    assert.deepEqual dict(), {}
+
+  it 'should merge key-value pairs into an object', ->
+    x = dict([a, a + 3] for a in [1..10])
+    assert x[key] is key + 3 for key in [1..10]
