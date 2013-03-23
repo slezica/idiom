@@ -69,7 +69,7 @@ describe '#extend()', ->
     assert key of z for own key of y
 
   it 'should override repeated properties', ->
-    assert z[key] = y[key] for own key of y
+    assert.equal z[key], y[key] for own key of y
 
 
 describe '#merge()', ->
@@ -85,7 +85,7 @@ describe '#merge()', ->
     assert key of z for own key of y
 
   it 'should override repeated properties', ->
-    assert z[key] = y[key] for own key of y
+    assert.equal z[key], y[key] for own key of y
 
 
 describe '#dict()', ->
