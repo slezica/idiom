@@ -1,3 +1,7 @@
+# This module is written for mocha
+#   1. Install with `npm install -g mocha`
+#   2. Run `mocha` (recommended `mocha -R spec`) on package root
+
 assert = require 'assert'
 
 require('../lib/idiom').export()
