@@ -13,8 +13,12 @@ build:
 doc: build
 	groc src/* README.md
 
-pubdoc:
-	groc --github src/* README.md
+docpub: doc
+	git checkout gh-pages
+	ls -1I doc | xargs rm -rf
+	mv doc/* .
+	rmdir doc
+
 
 test: build
 	mocha -R spec
