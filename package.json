@@ -1,25 +1,34 @@
 {
   "name": "idiom",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A handy collection of CoffeeScript (and JavaScript) idioms",
+
   "author": "Santiago Lezica <slezica89@gmail.com>",
   "license": "BSD",
+
   "main": "lib/idiom",
+  "files": ["lib", "test", "doc"],
+
   "scripts": {
-    "prepublish": "make"
+    "prepublish": "make dist"
   },
+
   "repository": {
     "type": "git",
     "url": "git@github.com:slezica/idiom.git"
   },
+
   "keywords": [
     "coffee-script",
     "idiom",
     "tools"
   ],
+
   "dependencies": {},
+
   "devDependencies": {
     "coffee-script": "~1.6.2",
-    "mocha": "~1.8.2"
+    "mocha": "~1.8.2",
+    "groc": "~0.3.2"
   }
 }
