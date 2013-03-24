@@ -15,9 +15,13 @@ doc: build
 
 gh-pages: doc
 	git checkout gh-pages
+
 	ls -1I doc | xargs rm -rf
 	mv doc/* .
 	rmdir doc
+
+	git add *
+	git commit -am "Generated at `date`"
 	git checkout master
 
 test: build
