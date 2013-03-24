@@ -13,5 +13,8 @@ build:
 doc: build
 	groc src/* README.md
 
+pubdoc:
+	groc --github src/* README.md
+
 test: build
 	mocha -R spec
