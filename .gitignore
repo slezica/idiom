@@ -1,5 +1,6 @@
 lib
 test
 doc
+idiom-*.tgz
 node_modules
 *.sublime-*
