@@ -1,6 +1,6 @@
 {
   "name": "idiom",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A handy collection of CoffeeScript (and JavaScript) idioms",
 
   "author": "Santiago Lezica <slezica89@gmail.com>",
