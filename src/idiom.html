@@ -4,17 +4,16 @@ optional parameter (defaults to <code>null</code>).</p></div></div><div class="c
 the usage of an object.</p></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><pre><code>first3 = take ([1, 2]) -&gt; @push 3
 </code></pre></div></div><div class="code"><div class="wrapper"><span class="vi">@take = </span><span class="nv">take = </span><span class="nf">(x, f) -&gt;</span>
   <span class="nx">f</span><span class="p">.</span><span class="nx">call</span> <span class="nx">x</span><span class="p">;</span> <span class="nx">x</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p><code>kindof</code> returns the class of an object. It plays the role of <code>typeof</code>, only
-it doesn't report 'object' for pretty much everything.</p></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><pre><code>kindof(undefined)   is 'undefined'
-kindof(null)        is 'null'
-kindof(1)           is 'Number'
-kindof('foo')       is 'String'
-kindof([])          is 'Array'
-kindof({})          is 'Object'
-kindof(new class X) is 'X'
+it doesn't report 'object' for pretty much everything, and yields the actual
+prototypes instead of strings.</p></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><pre><code>kindof(undefined)   is undefined
+kindof(null)        is null
+kindof(1)           is Number
+kindof('foo')       is String
+kindof([])          is Array
+kindof({})          is Object
+kindof(new class X) is X
 </code></pre></div></div><div class="code"><div class="wrapper"><span class="vi">@kindof = </span><span class="nf">(x) -&gt;</span>
-  <span class="k">if</span> <span class="nx">x</span> <span class="o">isnt</span> <span class="kc">null</span>
-    <span class="k">if</span> <span class="nx">x</span><span class="o">?</span> <span class="o">and</span> <span class="nx">x</span><span class="p">.</span><span class="nx">constructor</span><span class="o">?</span> <span class="k">then</span> <span class="nx">x</span><span class="p">.</span><span class="nx">constructor</span><span class="p">.</span><span class="nx">name</span> <span class="k">else</span> <span class="k">typeof</span> <span class="nx">x</span>
-  <span class="k">else</span> <span class="s">&#39;null&#39;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p><code>async</code> takes a sync function that <code>returns</code> or <code>throws</code> and creates an async
+  <span class="k">if</span> <span class="nx">x</span><span class="o">?</span> <span class="k">then</span> <span class="nx">x</span><span class="p">.</span><span class="nx">constructor</span> <span class="k">else</span> <span class="nx">x</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p><code>async</code> takes a sync function that <code>returns</code> or <code>throws</code> and creates an async
 version that takes a callback as last parameter. The callback is then
 invoked with either <code>(null, result)</code> or <code>(exception, null)</code>.</p></div></div><div class="code"><div class="wrapper"><span class="vi">@async = </span><span class="nf">(f) -&gt;</span> <span class="nf">(args..., $) -&gt;</span>
   <span class="k">try</span>

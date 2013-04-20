@@ -16,26 +16,27 @@
 
 <span class="nx">describe</span> <span class="s">&#39;#kindof()&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
   <span class="nx">it</span> <span class="s">&#39;should identify undefined&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
-    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="kc">undefined</span><span class="p">),</span> <span class="s">&#39;undefined&#39;</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="kc">undefined</span><span class="p">),</span> <span class="kc">undefined</span>
 
   <span class="nx">it</span> <span class="s">&#39;should identify null&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
-    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="kc">null</span><span class="p">),</span> <span class="s">&#39;null&#39;</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="kc">null</span><span class="p">),</span> <span class="kc">null</span>
 
   <span class="nx">it</span> <span class="s">&#39;should identify numbers&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
-    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="p">,</span> <span class="s">&#39;Number&#39;</span>
-    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span> <span class="s">&#39;Number&#39;</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="p">,</span> <span class="nb">Number</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span> <span class="nb">Number</span>
 
   <span class="nx">it</span> <span class="s">&#39;should identify strings&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
-    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">),</span> <span class="s">&#39;String&#39;</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">),</span> <span class="nb">String</span>
 
   <span class="nx">it</span> <span class="s">&#39;should identify arrays&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
-    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">([]),</span> <span class="s">&#39;Array&#39;</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">([]),</span> <span class="nb">Array</span>
 
   <span class="nx">it</span> <span class="s">&#39;should identify plain objects&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
-    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">({}),</span> <span class="s">&#39;Object&#39;</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">({}),</span> <span class="nb">Object</span>
 
   <span class="nx">it</span> <span class="s">&#39;should identify custom classes&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
-    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="k">new</span> <span class="k">class</span> <span class="nx">TestClass</span><span class="p">),</span> <span class="s">&#39;TestClass&#39;</span>
+    <span class="nv">Foo = </span><span class="k">class</span> <span class="nx">TestClass</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span> <span class="nx">kindof</span><span class="p">(</span><span class="k">new</span> <span class="nx">Foo</span><span class="p">),</span> <span class="nx">Foo</span>
 
 
 <span class="nx">describe</span> <span class="s">&#39;#async()&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
