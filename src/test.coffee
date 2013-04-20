@@ -18,26 +18,27 @@ describe '#take()', ->
 
 describe '#kindof()', ->
   it 'should identify undefined', ->
-    assert.equal kindof(undefined), 'undefined'
+    assert.equal kindof(undefined), undefined
 
   it 'should identify null', ->
-    assert.equal kindof(null), 'null'
+    assert.equal kindof(null), null
 
   it 'should identify numbers', ->
-    assert.equal kindof(1)  , 'Number'
-    assert.equal kindof(0.5), 'Number'
+    assert.equal kindof(1)  , Number
+    assert.equal kindof(0.5), Number
 
   it 'should identify strings', ->
-    assert.equal kindof('foo'), 'String'
+    assert.equal kindof('foo'), String
 
   it 'should identify arrays', ->
-    assert.equal kindof([]), 'Array'
+    assert.equal kindof([]), Array
 
   it 'should identify plain objects', ->
-    assert.equal kindof({}), 'Object'
+    assert.equal kindof({}), Object
 
   it 'should identify custom classes', ->
-    assert.equal kindof(new class TestClass), 'TestClass'
+    Foo = class TestClass
+    assert.equal kindof(new Foo), Foo
 
 
 describe '#async()', ->

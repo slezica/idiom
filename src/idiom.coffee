@@ -17,20 +17,18 @@
 # ---
 
 # `kindof` returns the class of an object. It plays the role of `typeof`, only
-# it doesn't report 'object' for pretty much everything.
+# it doesn't report 'object' for pretty much everything, and yields the actual
+# prototypes instead of strings.
 
-#     kindof(undefined)   is 'undefined'
-#     kindof(null)        is 'null'
-#     kindof(1)           is 'Number'
-#     kindof('foo')       is 'String'
-#     kindof([])          is 'Array'
-#     kindof({})          is 'Object'
-#     kindof(new class X) is 'X'
+#     kindof(undefined)   is undefined
+#     kindof(null)        is null
+#     kindof(1)           is Number
+#     kindof('foo')       is String
+#     kindof([])          is Array
+#     kindof({})          is Object
+#     kindof(new class X) is X
 @kindof = (x) ->
-  if x isnt null
-    if x? and x.constructor? then x.constructor.name else typeof x
-  else 'null'
-
+  if x? then x.constructor else x
 
 # ---
 
